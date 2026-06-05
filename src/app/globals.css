@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: #f4f3f1;
+    color: #000000;
+    -webkit-font-smoothing: antialiased;
+    /* декоративные звёзды промо выходят за контейнер — не даём гор. прокрутку */
+    overflow-x: hidden;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}

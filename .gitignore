@@ -1,0 +1,16 @@
+# Figma pull output (raw JSON + specs + exported assets) — регенерируется скриптом
+figma/
+
+# секреты и зависимости
+.env*
+node_modules/
+
+# Next.js build
+.next/
+out/
+
+# editor / os
+.claude/
+*.log
+.DS_Store
+Thumbs.db
