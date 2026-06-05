@@ -67,10 +67,10 @@ const baseProduct = {
 };
 
 export const products = [
-  { ...baseProduct, image: "/assets/product-1.png" },
-  { ...baseProduct, image: "/assets/product-2.png" },
-  { ...baseProduct, image: "/assets/product-3.png" },
-  { ...baseProduct, image: "/assets/product-4.png" },
+  { ...baseProduct, image: "/assets/product-1.png", size: "10 см" },
+  { ...baseProduct, image: "/assets/product-2.png", size: "8 см" },
+  { ...baseProduct, image: "/assets/product-3.png", size: "12 см" },
+  { ...baseProduct, image: "/assets/product-4.png", size: "9 см" },
 ];
 
 export const sections = [

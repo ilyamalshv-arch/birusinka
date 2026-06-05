@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { montserratAlt } from "../fonts";
 
-type Product = { image: string; title: string; price: string; tag: string };
+type Product = { image: string; title: string; price: string; tag: string; size: string };
 
 // Карточка товара. Текучая: на 1920 совпадает с макетом, ≤767 — мелкий вариант.
 const ProductCard = ({ product }: { product: Product }) => {
-  const { image, title, price, tag } = product;
+  const { image, title, price, tag, size } = product;
 
   return (
     <article className="group relative mx-auto flex w-full max-w-[420px] cursor-pointer flex-col items-center gap-[7px] rounded-[30px] bg-white transition-shadow duration-200 hover:shadow-[0_10px_30px_rgba(0,0,0,0.10)] min-[768px]:pb-[27px] max-[767px]:gap-[3px] max-[767px]:rounded-[8px]">
@@ -17,11 +17,11 @@ const ProductCard = ({ product }: { product: Product }) => {
           sizes="(max-width: 1023px) 45vw, 22vw"
           className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
         />
-        <div className="absolute inset-x-[20px] top-0 flex h-[89px] items-center justify-between max-[767px]:inset-x-[8px] max-[767px]:h-[34px]">
-          <span className="relative h-[89px] w-[67px] max-[767px]:h-[34px] max-[767px]:w-[25px]">
-            <Image src="/assets/badge-size.png" alt="" fill sizes="67px" className="object-cover" />
-            <span className="absolute inset-x-0 bottom-[15px] text-center text-[16px] font-medium leading-[156%] text-white max-[767px]:bottom-[6px] max-[767px]:text-[5px]">
-              00 см
+        <div className="absolute inset-x-[20px] top-0 flex h-[89px] items-center justify-between max-[767px]:inset-x-[8px] max-[767px]:h-[40px]">
+          <span className="relative block h-[69px] w-[48px] max-[767px]:h-[40px] max-[767px]:w-[28px]">
+            <Image src="/assets/badge-size.png" alt="" fill sizes="48px" className="object-contain" />
+            <span className="absolute inset-x-0 top-[64%] -translate-y-1/2 text-center text-[13px] font-medium leading-none text-white max-[767px]:text-[7px]">
+              {size}
             </span>
           </span>
           {tag && (
@@ -47,7 +47,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         />
       </div>
 
-      <div className="flex w-[calc(100%_-_10px)] items-center justify-between px-[20px] max-[767px]:w-[calc(100%_-_12px)] max-[767px]:px-[6px]">
+      <div className="flex w-[calc(100%_-_10px)] items-center justify-between px-[20px] max-[767px]:w-[calc(100%_-_20px)] max-[767px]:px-0">
         <button
           type="button"
           aria-label="Купить"

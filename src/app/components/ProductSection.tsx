@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ProductCard from "./ProductCard";
 
-type Product = { image: string; title: string; price: string; tag: string };
+type Product = { image: string; title: string; price: string; tag: string; size: string };
 
 // Секция товаров: заголовок со стрелкой + сетка 4→3→2 колонки.
 const ProductSection = ({ title, products }: { title: string; products: Product[] }) => {
