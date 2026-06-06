@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    background: #f4f3f1;
+    background: theme(colors.bg);
     color: #000000;
     -webkit-font-smoothing: antialiased;
     /* декоративные звёзды промо выходят за контейнер — не даём гор. прокрутку */

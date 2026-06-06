@@ -4,18 +4,19 @@ import Image from "next/image";
 import { useState } from "react";
 import { montserratAlt } from "../fonts";
 import { mainNav, mobileMenu, topBarLinks } from "../data";
+import Container from "./Container";
+import Accordion from "./Accordion";
 
 // Шапка. Десктоп (≥1600): логотип + меню с ховер-выпадайками + иконки.
-// Мобайл (≤1599): бургер открывает полноэкранное меню (аккордеон + аккаунт).
+// Мобайл (≤1599): бургер открывает полноэкранное меню (аккордеон категорий + аккаунт).
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
-  const [openCat, setOpenCat] = useState<number | null>(null);
 
   return (
     <>
       <header>
-        <div className="mx-auto flex h-[90px] w-full max-w-[1920px] items-center justify-between px-5 md:px-10 xl:px-[90px] max-[1599px]:h-[50px]">
+        <Container className="flex h-[90px] items-center justify-between max-[1599px]:h-[50px]">
           <button
             type="button"
             aria-label="Открыть меню"
@@ -45,7 +46,7 @@ const Header = () => {
                   </a>
                   <div className="absolute left-0 top-full z-50 hidden min-w-[249px] flex-col gap-[16px] rounded-[10px] bg-white p-[20px_24px] shadow-[0_10px_30px_rgba(0,0,0,0.12)] group-hover:flex">
                     {item.links.map((link) => (
-                      <a key={link} href="#" className="whitespace-nowrap text-[18px] font-normal leading-[22px] text-black hover:text-[#701518]">
+                      <a key={link} href="#" className="whitespace-nowrap text-[18px] font-normal leading-[22px] text-black hover:text-brand">
                         {link}
                       </a>
                     ))}
@@ -59,7 +60,7 @@ const Header = () => {
             <a href="#" className="flex items-center gap-[10px] max-[1599px]:hidden">
               <span className="flex flex-col items-end gap-[2px]">
                 <span className="text-[12.5px] leading-[15px]">Александр</span>
-                <span className="text-[12.5px] leading-[15px] text-[#701518]">0 баллов</span>
+                <span className="text-[12.5px] leading-[15px] text-brand">0 баллов</span>
               </span>
               <Image src="/assets/icon-user.svg" width={26} height={26} className="h-[26px] w-[26px]" alt="" />
             </a>
@@ -70,11 +71,11 @@ const Header = () => {
               <Image src="/assets/icon-cart.svg" width={29} height={29} className="h-[29px] w-[29px] max-[1599px]:h-[18px] max-[1599px]:w-[18px]" alt="" />
             </a>
           </div>
-        </div>
+        </Container>
       </header>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-[200] flex flex-col gap-[20px] overflow-y-auto bg-[#f4f3f1] p-[16px_20px_40px]">
+        <div className="fixed inset-0 z-[200] flex flex-col gap-[20px] overflow-y-auto bg-bg p-[16px_20px_40px]">
           <div className="flex items-center justify-between">
             <button type="button" aria-label="Закрыть меню" onClick={() => setMenuOpen(false)} className="text-[22px] leading-none text-black">
               ✕
@@ -95,59 +96,25 @@ const Header = () => {
                 <Image src="/assets/icon-user.svg" width={26} height={26} className="h-[26px] w-[26px]" alt="" />
                 <span className="flex flex-col">
                   <span className="text-[12.5px] leading-[15px]">Александр</span>
-                  <span className="text-[12.5px] leading-[15px] text-[#701518]">0 баллов</span>
+                  <span className="text-[12.5px] leading-[15px] text-brand">0 баллов</span>
                 </span>
-                <button type="button" onClick={() => setLoggedIn(false)} className="rounded-[8px] bg-[#701518] px-[20px] py-[8px] text-[14px] font-medium text-white">
+                <button type="button" onClick={() => setLoggedIn(false)} className="rounded-[8px] bg-brand px-[20px] py-[8px] text-[14px] font-medium text-white">
                   Выйти
                 </button>
               </div>
             ) : (
               <div className="flex items-center gap-[16px]">
-                <button type="button" onClick={() => setLoggedIn(true)} className="rounded-[8px] bg-[#701518] px-[20px] py-[8px] text-[14px] font-medium text-white">
+                <button type="button" onClick={() => setLoggedIn(true)} className="rounded-[8px] bg-brand px-[20px] py-[8px] text-[14px] font-medium text-white">
                   Войти
                 </button>
-                <a href="#" className="text-[14px] text-[#701518]">
+                <a href="#" className="text-[14px] text-brand">
                   Регистрация
                 </a>
               </div>
             )}
           </div>
 
-          <nav className="flex flex-col">
-            {mobileMenu.map((cat, index) => {
-              const isOpen = openCat === index;
-              return (
-                <div key={cat.title} className="border-b-[0.5px] border-black/15">
-                  <button
-                    type="button"
-                    aria-expanded={isOpen}
-                    onClick={() => setOpenCat(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between py-[12px] text-left text-[18px] font-medium leading-[22px] text-black"
-                  >
-                    <span>{cat.title}</span>
-                    <Image
-                      src="/assets/icon-section-arrow.svg"
-                      width={16}
-                      height={16}
-                      alt=""
-                      className={`h-[16px] w-[16px] transition-transform ${isOpen ? "rotate-90" : ""}`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <ul className="flex flex-col gap-[12px] pb-[14px] pt-[2px]">
-                      {cat.links.map((link) => (
-                        <li key={link}>
-                          <a href="#" className="text-[16px] leading-[20px] text-black">
-                            {link}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              );
-            })}
-          </nav>
+          <Accordion items={mobileMenu} variant="menu" className="flex" />
 
           <div className="flex flex-col gap-[14px] pt-[8px]">
             {topBarLinks.map((link) => (

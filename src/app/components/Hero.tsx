@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import Container from "./Container";
 
 // Слайды героя. Макет дал один баннер — дублируем для демонстрации слайдера;
 // реальные баннеры просто добавляются в массив.
@@ -25,7 +26,7 @@ const Hero = () => {
 
   return (
     <section className="pt-[30px] min-[768px]:pb-[39px] max-[767px]:pt-[16px]">
-      <div className="mx-auto w-full max-w-[1920px] px-5 md:px-10 xl:px-[90px]">
+      <Container>
         <div className="relative">
           <div className="overflow-hidden">
             <div
@@ -49,7 +50,7 @@ const Hero = () => {
                       (object-right) и реконструируем оверлей карточки. */}
                   <div className="relative h-[525px] shrink-0 basis-[303px] overflow-hidden max-[767px]:hidden">
                     <Image src={slide.promo} alt="Акция: фигурка «Маска»" fill sizes="303px" className="object-cover object-right" />
-                    <div className="absolute inset-0 flex flex-col justify-end gap-[14px] bg-gradient-to-t from-[#701518]/95 via-[#701518]/35 to-transparent p-[24px] text-white">
+                    <div className="absolute inset-0 flex flex-col justify-end gap-[14px] bg-gradient-to-t from-brand/95 via-brand/35 to-transparent p-[24px] text-white">
                       <span className="text-[26px] font-bold leading-[1.1]">ФИГУРКА «МАСКА»</span>
                       <div className="flex items-baseline gap-[10px]">
                         <span className="text-[28px] font-bold">690₽</span>
@@ -57,7 +58,7 @@ const Hero = () => {
                       </div>
                       <button
                         type="button"
-                        className="w-fit rounded-[8px] bg-[#193b64] px-[18px] py-[10px] text-[15px] font-medium text-white transition hover:brightness-125"
+                        className="w-fit rounded-[8px] bg-ink px-[18px] py-[10px] text-[15px] font-medium text-white transition hover:brightness-125"
                       >
                         Перейти в раздел акций
                       </button>
@@ -94,12 +95,12 @@ const Hero = () => {
               aria-label={`Слайд ${i + 1}`}
               onClick={() => go(i)}
               className={`h-[3px] w-[78px] transition-colors max-[767px]:h-[2px] max-[767px]:w-[29px] ${
-                i === index ? "bg-[#701518]" : "bg-[#6f141733]"
+                i === index ? "bg-brand" : "bg-tag/20"
               }`}
             />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

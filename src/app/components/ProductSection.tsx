@@ -7,7 +7,7 @@ type Product = { image: string; title: string; price: string; tag: string; size:
 const ProductSection = ({ title, products }: { title: string; products: Product[] }) => {
   return (
     <section className="flex flex-col gap-[40px] max-[767px]:gap-[12px]">
-      <h2 className="flex items-center gap-[10px] text-[48px] font-medium leading-[59px] text-[#701518] max-[767px]:gap-[4px] max-[767px]:text-[18px] max-[767px]:leading-[22px]">
+      <h2 className="flex items-center gap-[10px] text-[48px] font-medium leading-[59px] text-brand max-[767px]:gap-[4px] max-[767px]:text-[18px] max-[767px]:leading-[22px]">
         <span>{title}</span>
         <Image
           src="/assets/icon-section-arrow.svg"
