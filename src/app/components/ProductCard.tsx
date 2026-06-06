@@ -8,7 +8,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   const { image, title, price, tag, size } = product;
 
   return (
-    <article className="group relative mx-auto flex w-full max-w-[420px] cursor-pointer flex-col items-center gap-[7px] rounded-[30px] bg-white transition-shadow duration-200 hover:shadow-[0_10px_30px_rgba(0,0,0,0.10)] min-[768px]:pb-[27px] max-[767px]:gap-[3px] max-[767px]:rounded-[8px]">
+    <article className="group relative mx-auto flex w-full max-w-[420px] cursor-pointer flex-col items-center gap-[7px] rounded-[30px] bg-white transition-shadow duration-200 hover:shadow-[0_10px_30px_rgba(0,0,0,0.10)] min-[768px]:pb-[27px] max-[767px]:gap-[3px] max-[767px]:rounded-[8px] max-[767px]:pb-[10px]">
       <div className="relative aspect-[410/392] w-[calc(100%_-_10px)] overflow-hidden rounded-[30px] max-[767px]:aspect-[140/141] max-[767px]:w-[calc(100%_-_20px)] max-[767px]:rounded-[11px]">
         <Image
           src={image}
