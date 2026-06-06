@@ -9,6 +9,12 @@ node_modules/
 .next/
 out/
 
+# временные профили headless Chrome (QA-скриншоты)
+.chrome-*
+.cm*
+.cd*
+.clm
+
 # editor / os
 .claude/
 *.log
