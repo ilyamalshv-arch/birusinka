@@ -85,19 +85,27 @@ const Footer = () => {
               ЛИЧНЫЙ КАБИНЕТ
             </h3>
 
-            <div className="flex flex-col gap-[10px] text-[20px] leading-[24px] max-[1599px]:text-[14px] max-[1599px]:leading-[17px]">
-              <span>Мы на маркетплейсе</span>
-              <a href="#" className="self-start rounded-[8px] bg-white px-[18px] py-[6px] text-[22px] font-bold text-[#005bff]">
-                ozon
-              </a>
+            <div className="flex flex-col gap-[8px]">
+              <span className="text-[32px] font-bold leading-none tracking-[-0.02em] max-[1599px]:text-[24px]">OZON</span>
+              <span className="text-[20px] leading-[24px] max-[1599px]:text-[14px] max-[1599px]:leading-[17px]">
+                Мы на маркетплейсе
+              </span>
             </div>
 
-            <div className="flex flex-col gap-[10px] text-[20px] leading-[24px] max-[1599px]:text-[14px] max-[1599px]:leading-[17px]">
-              <span>Следите за новостями в нашей группе</span>
-              <a href="#" className="flex items-center gap-[8px] self-start rounded-[8px] bg-[#0077ff] px-[16px] py-[8px] text-[18px] text-white">
-                <Image src="/assets/icon-vk.svg" width={24} height={24} className="h-[24px] w-[24px]" alt="" />
-                ВКонтакте
+            <div className="flex flex-col gap-[8px]">
+              <a href="#" className="flex items-center gap-[10px] self-start">
+                <Image
+                  src="/assets/icon-vk-white.svg"
+                  width={34}
+                  height={34}
+                  className="h-[34px] w-[34px] max-[1599px]:h-[26px] max-[1599px]:w-[26px]"
+                  alt=""
+                />
+                <span className="text-[28px] font-medium leading-none max-[1599px]:text-[20px]">ВКонтакте</span>
               </a>
+              <span className="text-[20px] leading-[24px] max-[1599px]:text-[14px] max-[1599px]:leading-[17px]">
+                Следите за новостями в нашей группе
+              </span>
             </div>
 
             <div className="flex flex-col gap-[12px] text-[20px] leading-[24px] max-[1599px]:text-[14px] max-[1599px]:leading-[17px]">

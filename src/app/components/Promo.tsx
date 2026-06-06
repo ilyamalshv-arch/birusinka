@@ -1,35 +1,39 @@
 import Image from "next/image";
 
-// Промо-блок: звёзды по диагонали как в макете, текст в чистом коридоре между ними
-// (горизонтально не пересекает их → без наложения). Большие звёзды видны ≥1850, ниже скрыты.
+// Промо по макету: заголовок (40px) + абзац (24px, ширина 1104) выровнены ПО ЛЕВОМУ КРАЮ
+// на ~25% от левого края контента (контент 1740 задаёт родительский контейнер каталога).
+// Левая звезда ниже-слева, правая выше-справа, выходят за контент на 40/111px (как в макете).
+// Полная раскладка со звёздами — на широких экранах (≥1700, где она помещается); ниже — текст
+// влево без звёзд, чтобы ничего не наезжало.
 const Promo = () => {
   return (
-    <section className="relative flex flex-col items-center py-[60px] max-[767px]:py-[24px]">
-      <Image
-        src="/assets/star.png"
-        width={505}
-        height={505}
-        alt=""
-        className="pointer-events-none absolute left-[-40px] top-[-33px] hidden h-[505px] w-[505px] min-[1850px]:block"
-      />
-      <Image
-        src="/assets/star.png"
-        width={505}
-        height={505}
-        alt=""
-        className="pointer-events-none absolute right-[-110px] top-[-161px] hidden h-[505px] w-[505px] min-[1850px]:block"
-      />
+    <section className="relative py-[120px] max-[1279px]:py-[64px] max-[767px]:py-[24px]">
+      <div className="relative w-full">
+        <Image
+          src="/assets/star.png"
+          width={505}
+          height={505}
+          alt=""
+          className="pointer-events-none absolute left-[-40px] top-1/2 hidden h-[505px] w-[505px] -translate-y-[41%] min-[1700px]:block"
+        />
+        <Image
+          src="/assets/star.png"
+          width={505}
+          height={505}
+          alt=""
+          className="pointer-events-none absolute right-[-111px] top-1/2 hidden h-[505px] w-[505px] -translate-y-[66%] min-[1700px]:block"
+        />
 
-      <div className="relative z-[1] mx-auto flex max-w-[1104px] flex-col items-center gap-[48px] text-center min-[1850px]:max-w-[720px] max-[767px]:items-start max-[767px]:gap-[12px] max-[767px]:text-left">
-        <h2 className="text-[40px] font-medium leading-[49px] max-[767px]:text-[14px] max-[767px]:leading-[17px]">
-          ЕЛОЧНЫЕ ИГРУШКИ “БИРЮСИНКА”
-        </h2>
-        <p className="text-[24px] font-normal leading-[29px] max-[767px]:text-[14px] max-[767px]:leading-[17px]">
-          Фабрика “Бирюсинка” уже более 90 лет создаёт ёлочные игрушки ручной работы. Каждое изделие
-          выдувается из стекла и расписывается мастерами, сохраняя традиции сибирского ремесла. В
-          интернет-магазине вы найдёте новинки, ретро-коллекции и эксклюзивные наборы, которые станут
-          украшением вашего праздника.
-        </p>
+        <div className="relative z-[1] max-w-[1104px] text-left min-[1700px]:ml-[25%]">
+          <h2 className="text-[40px] font-medium leading-[49px] max-[767px]:text-[18px] max-[767px]:leading-[22px]">
+            ЕЛОЧНЫЕ ИГРУШКИ “БИРЮСИНКА”
+          </h2>
+          <p className="mt-[30px] whitespace-pre-line text-[24px] font-normal leading-[29px] max-[767px]:mt-[12px] max-[767px]:text-[14px] max-[767px]:leading-[17px]">
+            {`Фабрика “Бирюсинка” уже более 90 лет создаёт ёлочные игрушки ручной работы. Каждое изделие выдувается из стекла и расписывается мастерами,
+сохраняя традиции сибирского ремесла.
+В интернет-магазине вы найдёте новинки, ретро-коллекции и эксклюзивные наборы, которые станут украшением вашего праздника.`}
+          </p>
+        </div>
       </div>
     </section>
   );
