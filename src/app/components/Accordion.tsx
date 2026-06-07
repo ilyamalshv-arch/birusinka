@@ -27,7 +27,10 @@ const Accordion = ({
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={item.title} className={`border-b-[0.5px] ${footer ? "border-white/40" : "border-black/15"}`}>
+          <div
+            key={item.title}
+            className={`border-b-[0.5px] ${footer ? "border-white/40" : "border-black/15"}`}
+          >
             <button
               type="button"
               aria-expanded={isOpen}
@@ -51,7 +54,10 @@ const Accordion = ({
               <ul className="flex flex-col gap-[12px] pb-[14px] pt-[2px]">
                 {item.links.map((link) => (
                   <li key={link}>
-                    <a href="#" className={`text-[16px] font-normal leading-[20px] ${footer ? "" : "text-black"}`}>
+                    <a
+                      href="#"
+                      className={`text-[16px] font-normal leading-[20px] ${footer ? "" : "text-black"}`}
+                    >
                       {link}
                     </a>
                   </li>

@@ -25,7 +25,7 @@ const Hero = () => {
   }, [count]);
 
   return (
-    <section className="pt-[30px] min-[768px]:pb-[39px] max-[767px]:pt-[16px]">
+    <section className="pt-[30px] max-md:pt-[16px] md:pb-[39px]">
       <Container>
         <div className="relative">
           <div className="overflow-hidden">
@@ -34,8 +34,8 @@ const Hero = () => {
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
               {SLIDES.map((slide, i) => (
-                <div key={i} className="flex w-full shrink-0 gap-[32px] max-[767px]:gap-0">
-                  <div className="relative h-[525px] flex-1 overflow-hidden max-[767px]:aspect-[335/125] max-[767px]:h-auto max-[767px]:rounded-[8px]">
+                <div key={i} className="flex w-full shrink-0 gap-[32px] max-md:gap-0">
+                  <div className="relative h-[525px] flex-1 overflow-hidden max-md:aspect-[335/125] max-md:h-auto max-md:rounded-[8px]">
                     <Image
                       src={slide.main}
                       alt="Мастер-классы"
@@ -48,8 +48,14 @@ const Hero = () => {
 
                   {/* Акция: сырой ассет горизонтальный (маска справа) — показываем маску фоном
                       (object-right) и реконструируем оверлей карточки. */}
-                  <div className="relative h-[525px] shrink-0 basis-[303px] overflow-hidden max-[767px]:hidden">
-                    <Image src={slide.promo} alt="Акция: фигурка «Маска»" fill sizes="303px" className="object-cover object-right" />
+                  <div className="relative h-[525px] shrink-0 basis-[303px] overflow-hidden max-md:hidden">
+                    <Image
+                      src={slide.promo}
+                      alt="Акция: фигурка «Маска»"
+                      fill
+                      sizes="303px"
+                      className="object-cover object-right"
+                    />
                     <div className="absolute inset-0 flex flex-col justify-end gap-[14px] bg-gradient-to-t from-brand/95 via-brand/35 to-transparent p-[24px] text-white">
                       <span className="text-[26px] font-bold leading-[1.1]">ФИГУРКА «МАСКА»</span>
                       <div className="flex items-baseline gap-[10px]">
@@ -73,28 +79,40 @@ const Hero = () => {
             type="button"
             aria-label="Предыдущий слайд"
             onClick={() => go(index - 1)}
-            className="absolute left-[-20px] top-1/2 flex -translate-y-1/2 transition-transform hover:scale-110 max-[767px]:hidden"
+            className="absolute left-[-20px] top-1/2 flex -translate-y-1/2 transition-transform hover:scale-110 max-md:hidden"
           >
-            <Image src="/assets/hero-arrow.svg" width={40} height={40} alt="" className="h-[40px] w-[40px]" />
+            <Image
+              src="/assets/hero-arrow.svg"
+              width={40}
+              height={40}
+              alt=""
+              className="h-[40px] w-[40px]"
+            />
           </button>
           <button
             type="button"
             aria-label="Следующий слайд"
             onClick={() => go(index + 1)}
-            className="absolute right-[-20px] top-1/2 flex -translate-y-1/2 transition-transform hover:scale-110 max-[767px]:hidden"
+            className="absolute right-[-20px] top-1/2 flex -translate-y-1/2 transition-transform hover:scale-110 max-md:hidden"
           >
-            <Image src="/assets/hero-arrow.svg" width={40} height={40} alt="" className="h-[40px] w-[40px] -scale-x-100" />
+            <Image
+              src="/assets/hero-arrow.svg"
+              width={40}
+              height={40}
+              alt=""
+              className="h-[40px] w-[40px] -scale-x-100"
+            />
           </button>
         </div>
 
-        <div className="mt-[20px] flex justify-center gap-[14px] max-[767px]:mt-[10px] max-[767px]:gap-[8px]">
+        <div className="mt-[20px] flex justify-center gap-[14px] max-md:mt-[10px] max-md:gap-[8px]">
           {SLIDES.map((_, i) => (
             <button
               key={i}
               type="button"
               aria-label={`Слайд ${i + 1}`}
               onClick={() => go(i)}
-              className={`h-[3px] w-[78px] transition-colors max-[767px]:h-[2px] max-[767px]:w-[29px] ${
+              className={`h-[3px] w-[78px] transition-colors max-md:h-[2px] max-md:w-[29px] ${
                 i === index ? "bg-brand" : "bg-tag/20"
               }`}
             />

@@ -33,8 +33,3 @@ GITHUB_PAGES=true npm run build   # статический экспорт в ./o
 ```
 
 Деплой на GitHub Pages автоматический — через GitHub Actions при пуше в `main`.
-
-## Дев-скрипты
-
-В `scripts/` — вспомогательный тулинг (выгрузка ассетов и размеров из Figma, QA-сверка
-рендера с макетом). В сборку и в рантайм сайта не входит. Подробно — [`scripts/README.md`](scripts/README.md).

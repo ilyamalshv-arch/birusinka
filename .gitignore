@@ -1,6 +1,9 @@
 # Figma pull output (raw JSON + specs + exported assets) — регенерируется скриптом
 figma/
 
+# дев-скрипты (выгрузка из Figma / QA) — оставлены локально, в репозитории не нужны
+scripts/
+
 # секреты и зависимости
 .env*
 node_modules/

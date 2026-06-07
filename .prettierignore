@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+figma
+scripts
+public
+package-lock.json

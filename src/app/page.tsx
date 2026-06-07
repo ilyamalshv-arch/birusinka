@@ -15,7 +15,7 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <Container className="flex flex-col gap-[100px] pb-[150px] pt-[60px] max-[1279px]:gap-[64px] max-[1279px]:pb-[80px] max-[1279px]:pt-[40px] max-[767px]:gap-[24px] max-[767px]:pb-[28px] max-[767px]:pt-[16px]">
+        <Container className="flex flex-col gap-[100px] pb-[150px] pt-[60px] max-xl:gap-[64px] max-xl:pb-[80px] max-xl:pt-[40px] max-md:gap-[24px] max-md:pb-[28px] max-md:pt-[16px]">
           {sections.map((section) => (
             <ProductSection key={section.title} title={section.title} products={section.products} />
           ))}
